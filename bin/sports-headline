@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# the line of code above indicates to interpret this file through ruby
+
+require "bundler/setup"
+require "sports_headline"
+SportsHeadline::CLI.new.call
