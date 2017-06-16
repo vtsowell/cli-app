@@ -3,6 +3,7 @@
 class SportsHeadline::CLI
 
   def call #this is the method that calls upon others and is invoked when the gem is run
+    SportsHeadline::Scraper.new.make_headlines
     list_headlines
     menu
     goodbye
