@@ -4,6 +4,7 @@ class SportsHeadline::CLI
 
   def call #this is the method that calls upon others and is invoked when the gem is run
     SportsHeadline::Scraper.new.make_headlines
+    puts "Today's sports headlines:"
     list_headlines
     menu
     goodbye
@@ -11,7 +12,7 @@ class SportsHeadline::CLI
 
   def list_headlines
     #this is the method that scrapes ESPN and lists out the headlines of today's sports headlines
-    puts "Today's sports headlines:"
+    puts "1. #{headline.title} "
 
     @headlines = SportsHeadline::Headline.today
   end
