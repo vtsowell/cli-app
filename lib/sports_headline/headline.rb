@@ -1,26 +1,32 @@
 class SportsHeadline::Headline
 
-  attr_accessor :title, :author, :sport, :url
+  attr_accessor :title, :author, :sport
 
   @@all = []
 
   def self.new_from_index_page(h)
     #it should return instances of Headline
-    self.new(
-    h.css("div.media-body h3").text,
-    h.css("div.media-body span.author").text,
-    h.css("div.media-body span.sport").text,
-    h.css("div.media-body h3")['href']
-    )
 
+    self.new(
+      h.css(".media-heading").css("a").text,
+      h.css(".author").text,
+      h.css(".media-body").css(".sport").text
+      )
   end
 
-  def initialize(title=nil, author=nil, sport=nil, url=nil)
+  def initialize(title=nil, author=nil, sport=nil)
     @title = title
     @author = author
     @sport = sport
-    @url = url
     @@all << self
+  end
+
+  def self.all
+    @@all
+  end
+
+  def self.sport
+    @sport
   end
 
   def doc
